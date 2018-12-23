@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node --experimental-modules server.mjs",
+        "client": "node --experimental-modules client.mjs",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@grpc/proto-loader": "^0.1.0",
+        "async": "^1.5.2",
+        "google-protobuf": "^3.6.1",
+        "grpc": "^1.17.0",
+        "lodash": "^4.6.1",
+        "minimist": "^1.2.0"
+    }
+}

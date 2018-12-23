@@ -22,7 +22,7 @@ abstract public class AveterMotion : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		CreateTempObj ();
-		SetupVRIK (avatar, headTarget, leftHandTarget, rightHandTarget);
+		SetupVRIK ();
 		OnStart ();
 	}
 
@@ -31,7 +31,7 @@ abstract public class AveterMotion : MonoBehaviour {
 		OnUpdate ();
 	}
 
-	private void CreateTempObj () {
+	protected virtual void CreateTempObj () {
 		// ターゲットを仮作成
 		headTarget = new GameObject ();
 		headTarget.name = "headTarget";
@@ -49,30 +49,28 @@ abstract public class AveterMotion : MonoBehaviour {
 		rightHandTarget.transform.parent = transform;
 	}
 
-	private void SetupVRIK (GameObject avatar, GameObject headTarget, GameObject leftHandTarget, GameObject rightHandTarget) {
+	protected virtual void SetupVRIK () {
 
 		// VRIKを設定
 		var vrIK = avatar.AddComponent<VRIK> ();
 
 		// リファレンス紐付け
 		vrIK.AutoDetectReferences ();
-
-		// NullReferenceエラーがでるので初期化しておく
-		vrIK.solver.leftArm.stretchCurve = new AnimationCurve ();
-		vrIK.solver.rightArm.stretchCurve = new AnimationCurve ();
-
-		// 頭や腕のターゲット設定
 		vrIK.solver.spine.headTarget = headTarget.transform;
+
+		vrIK.solver.leftArm.stretchCurve = new AnimationCurve ();
 		vrIK.solver.leftArm.target = leftHandTarget.transform;
+		// vrIK.solver.leftArm.rotationWeight = 0.8f;
+
+		vrIK.solver.rightArm.stretchCurve = new AnimationCurve ();
 		vrIK.solver.rightArm.target = rightHandTarget.transform;
+		// vrIK.solver.rightArm.rotationWeight = 0.8f;
 
 		// 歩幅の設定            
 		// vrIK.solver.locomotion.footDistance = 0.05f;
-		// vrIK.solver.leftArm.rotationWeight = 0.8f;
-		// vrIK.solver.rightArm.rotationWeight = 0.8f;
 	}
 
-	private void Calibration () {
+	protected virtual void Calibration () {
 		Vector3 pos1 = headTarget.transform.position;
 		pos1.z -= 0.2f; // pos.y = 1.5f;
 		headTarget.transform.position = pos1;

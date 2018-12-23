@@ -1,0 +1,25 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "protos";
+
+package avater;
+
+service Position {
+  rpc Get (GetRequest) returns (GetResponse) {}
+  rpc Update (UpdateRequest) returns (UpdateResponse) {}
+}
+
+message GetRequest {
+}
+
+message GetResponse {
+  string message = 1;
+}
+
+message UpdateRequest {
+  string message = 1;
+}
+
+message UpdateResponse {
+}

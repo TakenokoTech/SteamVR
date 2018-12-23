@@ -1,0 +1,10 @@
+# Lib
+Plugins/
+
+# Root Lib
+SteamVR/
+SteamVR_Input/
+VRM/
+
+# local file
+Scenes/Model/

@@ -14,10 +14,13 @@ public class ImplAveter : AveterMotion {
 	public GameObject leftLeg;
 	public GameObject rightLeg;
 
+	public Quaternion quaR = new Quaternion (0, 90, 180, -180);
+	public Quaternion quaL = new Quaternion (0, 90, 180, 180);
+
 	private GameObject leftLegTarget;
 	private GameObject rightLegTarget;
 
-	private JsonEntity entity = new JsonEntity ();
+	private JsonEntity entity = null;
 	private Thread thread;
 
 	protected override void OnStart () {
@@ -28,23 +31,27 @@ public class ImplAveter : AveterMotion {
 		thread = new Thread (DoHeavyProcess);
 		thread.Start ();
 
-		try {
-			// VrUtil.tracePosition (eyeCamera, headTarget);
-			// VrUtil.tracePosition (leftHand, leftHandTarget);
-			// VrUtil.tracePosition (rightHand, rightHandTarget);
-			VrUtil.tracePosition (leftLeg, leftLegTarget);
-			VrUtil.tracePosition (rightLeg, rightLegTarget);
+		VrUtil.tracePosition (eyeCamera, headTarget);
+		VrUtil.tracePosition (leftHand, leftHandTarget);
+		VrUtil.tracePosition (rightHand, rightHandTarget);
+		VrUtil.tracePosition (leftLeg, leftLegTarget);
+		VrUtil.tracePosition (rightLeg, rightLegTarget);
 
+		if (entity == null) {
+			return;
+		}
+
+		try {
 			eyeCamera.transform.position = entity.headVec;
 			eyeCamera.transform.rotation = entity.headQua;
 			VrUtil.tracePosition (eyeCamera, headTarget);
 
 			leftHand.transform.position = entity.leftHandVec;
-			leftHand.transform.rotation = entity.leftHandQua;
+			leftHand.transform.rotation = entity.leftHandQua * quaL;
 			VrUtil.tracePosition (leftHand, leftHandTarget);
 
 			rightHand.transform.position = entity.rightHandVec;
-			rightHand.transform.rotation = entity.rightHandQua;
+			rightHand.transform.rotation = entity.rightHandQua * quaR;
 			VrUtil.tracePosition (rightHand, rightHandTarget);
 
 		} catch (NullReferenceException e) {
@@ -81,7 +88,9 @@ public class ImplAveter : AveterMotion {
 
 	private void DoHeavyProcess () {
 		string jsonStr = apiprotocol.GrpcApi.Get ();
-		entity = JsonUtility.FromJson<JsonEntity> (jsonStr);
-		Debug.Log (entity.headVec.ToString ());
+		if (jsonStr != null) {
+			entity = JsonUtility.FromJson<JsonEntity> (jsonStr);
+			Debug.Log (entity.headVec.ToString ());
+		}
 	}
 }

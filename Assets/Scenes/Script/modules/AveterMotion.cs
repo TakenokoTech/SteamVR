@@ -28,6 +28,7 @@ abstract public class AveterMotion : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Calibration ();
 		OnUpdate ();
 	}
 

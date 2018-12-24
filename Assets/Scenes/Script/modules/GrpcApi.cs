@@ -22,7 +22,7 @@ namespace apiprotocol {
                 Channel channel = new Channel ("127.0.0.1:9999", ChannelCredentials.Insecure);
                 var client = new Position.PositionClient (channel);
                 var reply = client.Get (new GetRequest { });
-                Debug.Log ("reply: " + reply.Message);
+                // Debug.Log ("reply: " + reply.Message);
                 channel.ShutdownAsync ().Wait ();
                 return reply.Message;
             } catch (Exception e) {
@@ -42,7 +42,7 @@ namespace apiprotocol {
                 Channel channel = new Channel ("127.0.0.1:9999", ChannelCredentials.Insecure);
                 var client = new Position.PositionClient (channel);
                 var reply = client.Update (new UpdateRequest { Message = str });
-                Debug.Log ("reply");
+                // Debug.Log ("reply");
                 channel.ShutdownAsync ().Wait ();
             } catch (Exception e) {
                 Debug.Log (e.StackTrace);

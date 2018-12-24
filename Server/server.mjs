@@ -17,7 +17,7 @@ const avaterProto = grpc.loadPackageDefinition(
 function get(call, callback) {
     console.log("get", call.request.message);
     callback(null, {
-        message: JSON.stringify(sample) /** aveterPosition["pos"] */
+        message: /** JSON.stringify(sample) **/ aveterPosition["pos"]
     });
 }
 

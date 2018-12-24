@@ -55,7 +55,7 @@
         "*.sln": true,
         "Assets/VRM/**": true,
         "Assets/Plugins/**": true,
-        "Assets/SteamVR/**": true,
+        // "Assets/SteamVR/**": true,
         "Assets/Scenes/**": false
     },
     "editor.formatOnSave": true

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using RootMotion.FinalIK;
@@ -27,23 +28,28 @@ public class ImplAveter : AveterMotion {
 		thread = new Thread (DoHeavyProcess);
 		thread.Start ();
 
-		// VrUtil.tracePosition (eyeCamera, headTarget);
-		// VrUtil.tracePosition (leftHand, leftHandTarget);
-		// VrUtil.tracePosition (rightHand, rightHandTarget);
-		VrUtil.tracePosition (leftLeg, leftLegTarget);
-		VrUtil.tracePosition (rightLeg, rightLegTarget);
+		try {
+			// VrUtil.tracePosition (eyeCamera, headTarget);
+			// VrUtil.tracePosition (leftHand, leftHandTarget);
+			// VrUtil.tracePosition (rightHand, rightHandTarget);
+			VrUtil.tracePosition (leftLeg, leftLegTarget);
+			VrUtil.tracePosition (rightLeg, rightLegTarget);
 
-		eyeCamera.transform.position = entity.headVec;
-		eyeCamera.transform.rotation = entity.headQua;
-		VrUtil.tracePosition (eyeCamera, headTarget);
+			eyeCamera.transform.position = entity.headVec;
+			eyeCamera.transform.rotation = entity.headQua;
+			VrUtil.tracePosition (eyeCamera, headTarget);
 
-		leftHand.transform.position = entity.leftHandVec;
-		leftHand.transform.rotation = entity.leftHandQua;
-		VrUtil.tracePosition (leftHand, leftHandTarget);
+			leftHand.transform.position = entity.leftHandVec;
+			leftHand.transform.rotation = entity.leftHandQua;
+			VrUtil.tracePosition (leftHand, leftHandTarget);
 
-		rightHand.transform.position = entity.rightHandVec;
-		rightHand.transform.rotation = entity.rightHandQua;
-		VrUtil.tracePosition (rightHand, rightHandTarget);
+			rightHand.transform.position = entity.rightHandVec;
+			rightHand.transform.rotation = entity.rightHandQua;
+			VrUtil.tracePosition (rightHand, rightHandTarget);
+
+		} catch (NullReferenceException e) {
+			Debug.Log (e);
+		}
 	}
 
 	override protected void CreateTempObj () {

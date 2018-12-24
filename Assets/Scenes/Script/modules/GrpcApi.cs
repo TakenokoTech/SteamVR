@@ -10,14 +10,15 @@ namespace apiprotocol {
 
     public class GrpcApi {
 
-        private static bool finished = true;
+        private static bool finishedGet = true;
+        private static bool finishedUpdate = true;
 
         public static String Get () {
-            if (!finished) {
+            if (!finishedGet) {
                 return null;
             }
             try {
-                finished = false;
+                finishedGet = false;
                 Channel channel = new Channel ("127.0.0.1:9999", ChannelCredentials.Insecure);
                 var client = new Position.PositionClient (channel);
                 var reply = client.Get (new GetRequest { });
@@ -27,17 +28,17 @@ namespace apiprotocol {
             } catch (Exception e) {
                 Debug.Log (e.StackTrace);
             } finally {
-                finished = true;
+                finishedGet = true;
             }
             return null;
         }
 
         public static void Update (string str) {
-            if (!finished) {
+            if (!finishedUpdate) {
                 return;
             }
             try {
-                finished = false;
+                finishedUpdate = false;
                 Channel channel = new Channel ("127.0.0.1:9999", ChannelCredentials.Insecure);
                 var client = new Position.PositionClient (channel);
                 var reply = client.Update (new UpdateRequest { Message = str });
@@ -46,7 +47,7 @@ namespace apiprotocol {
             } catch (Exception e) {
                 Debug.Log (e.StackTrace);
             } finally {
-                finished = true;
+                finishedUpdate = true;
             }
         }
     }

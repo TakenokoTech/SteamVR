@@ -84,6 +84,13 @@ public class ImplAveter : AveterMotion {
 		vrIK.solver.rightLeg.stretchCurve = new AnimationCurve ();
 		vrIK.solver.rightLeg.target = rightLegTarget.transform;
 		vrIK.solver.rightLeg.positionWeight = 1F;
+
+		TwistRelaxer leftTwistRelaxer = vrIK.references.leftForearm.gameObject.AddComponent<TwistRelaxer> ();
+		leftTwistRelaxer.weight = 0.4F;
+		leftTwistRelaxer.parentChildCrossfade = 1.0F;
+		TwistRelaxer rightTwistRelaxer = vrIK.references.rightForearm.gameObject.AddComponent<TwistRelaxer> ();
+		rightTwistRelaxer.weight = 0.4F;
+		rightTwistRelaxer.parentChildCrossfade = 1.0F;
 	}
 
 	private void DoHeavyProcess () {

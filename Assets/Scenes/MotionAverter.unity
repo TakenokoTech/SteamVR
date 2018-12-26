@@ -118,11 +118,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1019144044554368, guid: aff72bf8abd531f4da9dda958f6e301f,
     type: 2}
   m_PrefabInternal: {fileID: 401732510}
+--- !u!114 &49871261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114481980416762024, guid: aff72bf8abd531f4da9dda958f6e301f,
+    type: 2}
+  m_PrefabInternal: {fileID: 401732510}
+  m_Script: {fileID: 11500000, guid: 5b678c1df50cfb547990db24a32856da, type: 3}
 --- !u!4 &49871265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4548455142388442, guid: aff72bf8abd531f4da9dda958f6e301f,
     type: 2}
   m_PrefabInternal: {fileID: 401732510}
+--- !u!114 &49871266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49871257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ea1f88e8d74e04e9341465573a4ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlendShapes: {fileID: 49871261}
+  m_interVal: 5
+  m_closingTime: 0.06
+  m_openingSeconds: 0.03
+  m_closeSeconds: 0.1
 --- !u!1 &136873014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1040,8 @@ MonoBehaviour:
   rightHand: {fileID: 913618555}
   leftLeg: {fileID: 904258528}
   rightLeg: {fileID: 136873014}
+  quaR: {x: 0, y: 90, z: 180, w: -180}
+  quaL: {x: 0, y: 90, z: 180, w: 180}
 --- !u!4 &1871388363
 Transform:
   m_ObjectHideFlags: 0

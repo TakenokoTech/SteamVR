@@ -1,6 +1,7 @@
 import grpc from "grpc";
 import protoLoader from "@grpc/proto-loader";
 import sample from "./sample.json";
+import Log from "./utils/Log.mjs";
 
 const aveterPosition = {};
 
@@ -15,17 +16,17 @@ const avaterProto = grpc.loadPackageDefinition(
 ).avater;
 
 function get(call, callback) {
-    //console.log("get", call.request.message);
+    Log.info("get" /**, new String(call.request).length*/);
     var label = "time";
-    console.time(label);
+    // console.time(label);
     callback(null, {
-        message: /** JSON.stringify(sample) **/ aveterPosition["pos"]
+        message: aveterPosition["pos"]
     });
-    console.timeEnd(label);
+    // console.timeEnd(label);
 }
 
 function update(call, callback) {
-    //console.log("update", call.request.message);
+    Log.info("update" /**, new String(call.request).length*/);
     aveterPosition["pos"] = call.request.message;
     callback(null, { message: "Hello " + call.request.message });
 }

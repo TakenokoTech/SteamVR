@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class ImplController : MonoBehaviour {
@@ -36,6 +37,7 @@ public class ImplController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SceneManager.LoadScene (1, LoadSceneMode.Additive);
 		ActionSet.ActivatePrimary (true);
 	}
 
@@ -75,7 +77,7 @@ public class ImplController : MonoBehaviour {
 	protected virtual void Calibration () {
 		if (Button.GetLastState (InputSources)) {
 			Debug.Log ("Button");
-			calibrationVec = new Vector3 (0, 1.6F, 0) - entity.headVec;
+			calibrationVec = new Vector3 (0, 1.35F, 0) - entity.headVec;
 		}
 		entity.headVec = entity.headVec + calibrationVec;
 		entity.leftHandVec = entity.leftHandVec + calibrationVec;

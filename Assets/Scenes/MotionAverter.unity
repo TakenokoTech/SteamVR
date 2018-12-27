@@ -145,6 +145,17 @@ MonoBehaviour:
   m_closingTime: 0.06
   m_openingSeconds: 0.03
   m_closeSeconds: 0.1
+--- !u!114 &49871267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49871257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e841269ed1c6c284e8ff337576e387c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136873014
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +168,7 @@ GameObject:
   - component: {fileID: 136873018}
   - component: {fileID: 136873017}
   - component: {fileID: 136873016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +373,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -481,7 +492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &534669903
 AudioListener:
   m_ObjectHideFlags: 0
@@ -520,7 +531,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 1
@@ -565,7 +576,7 @@ GameObject:
   - component: {fileID: 904258532}
   - component: {fileID: 904258531}
   - component: {fileID: 904258530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +673,7 @@ GameObject:
   - component: {fileID: 913618558}
   - component: {fileID: 913618557}
   - component: {fileID: 913618560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +768,7 @@ GameObject:
   - component: {fileID: 1142060867}
   - component: {fileID: 1142060869}
   - component: {fileID: 1142060868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +931,7 @@ GameObject:
   - component: {fileID: 1838903904}
   - component: {fileID: 1838903903}
   - component: {fileID: 1838903906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1123,7 @@ GameObject:
   - component: {fileID: 2053335553}
   - component: {fileID: 2053335552}
   - component: {fileID: 2053335555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

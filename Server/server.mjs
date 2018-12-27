@@ -15,14 +15,17 @@ const avaterProto = grpc.loadPackageDefinition(
 ).avater;
 
 function get(call, callback) {
-    console.log("get", call.request.message);
+    //console.log("get", call.request.message);
+    var label = "time";
+    console.time(label);
     callback(null, {
         message: /** JSON.stringify(sample) **/ aveterPosition["pos"]
     });
+    console.timeEnd(label);
 }
 
 function update(call, callback) {
-    console.log("update", call.request.message);
+    //console.log("update", call.request.message);
     aveterPosition["pos"] = call.request.message;
     callback(null, { message: "Hello " + call.request.message });
 }

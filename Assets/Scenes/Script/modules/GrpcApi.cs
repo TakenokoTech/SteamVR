@@ -14,6 +14,8 @@ namespace apiprotocol {
         private static bool finishedUpdate = true;
 
         public static String Get () {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch ();
+            sw.Start ();
             if (!finishedGet) {
                 return null;
             }
@@ -28,12 +30,16 @@ namespace apiprotocol {
             } catch (Exception e) {
                 Debug.Log (e.StackTrace);
             } finally {
+                sw.Stop ();
+                Debug.Log (sw.ElapsedMilliseconds + "ms");
                 finishedGet = true;
             }
             return null;
         }
 
         public static void Update (string str) {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch ();
+            sw.Start ();
             if (!finishedUpdate) {
                 return;
             }
@@ -47,6 +53,8 @@ namespace apiprotocol {
             } catch (Exception e) {
                 Debug.Log (e.StackTrace);
             } finally {
+                sw.Stop ();
+                Debug.Log (sw.ElapsedMilliseconds + "ms");
                 finishedUpdate = true;
             }
         }

@@ -88,6 +88,7 @@ public class ImplAveter : AveterMotion {
 		TwistRelaxer leftTwistRelaxer = vrIK.references.leftForearm.gameObject.AddComponent<TwistRelaxer> ();
 		leftTwistRelaxer.weight = 0.4F;
 		leftTwistRelaxer.parentChildCrossfade = 1.0F;
+
 		TwistRelaxer rightTwistRelaxer = vrIK.references.rightForearm.gameObject.AddComponent<TwistRelaxer> ();
 		rightTwistRelaxer.weight = 0.4F;
 		rightTwistRelaxer.parentChildCrossfade = 1.0F;

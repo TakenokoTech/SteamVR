@@ -20,8 +20,10 @@ function main() {
 
     let user = "world";
     client.update({ name: user }, (err, response) => {
+        console.time(label);
         err && console.log("Err:", err);
         response && console.log("Greeting:", response.message);
+        console.timeEnd(label);
     });
 }
 main();

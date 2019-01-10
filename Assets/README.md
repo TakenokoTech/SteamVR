@@ -5,7 +5,7 @@
 * SteamVR Plugin  
 https://assetstore.unity.com/packages/tools/integration/steamvr-plugin-32647
 
-* UniVRM
+* UniVRM  
 https://dwango.github.io/vrm/how_to_make_vrm/
 
 * Final IK  
